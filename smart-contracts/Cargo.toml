@@ -1,0 +1,17 @@
+[package]
+name = "zenithcode-contracts"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+solana-program = "~1.16"
+borsh = "0.10.3"
+borsh-derive = "0.10.3"
+thiserror = "1.0.40"
+anyhow = "1.0.70"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+no-entrypoint = [] 
