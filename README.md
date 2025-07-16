@@ -1,4 +1,4 @@
-# ZenithCode 🚀
+# ZenithCode 🚀 [🚧 Under Progress]
 
 Welcome to ZenithCode, the decentralized programming revolution that obliterates the boundaries of traditional coding! This is not just a tool—it's a living, breathing ecosystem where code evolves, developers are rewarded, and automation reaches cosmic levels. Powered by federated learning, blockchain, and a global network of code intelligence, ZenithCode empowers developers to create smarter, faster, and more secure software while preserving privacy and incentivizing contributions.
 
@@ -6,14 +6,14 @@ Welcome to ZenithCode, the decentralized programming revolution that obliterates
 
 Imagine a world where your code learns from millions of developers without ever leaving your machine. Where niche domains like quantum computing or IoT get the same love as web dev. Where you earn cosmic credits for your contributions and tap into a decentralized compute grid to supercharge your projects. ZenithCode is that world—a decentralized, AI-driven programming environment that automates the mundane, amplifies the extraordinary, and makes coding a universal superpower.
 
-## 🚀 Features
+## 🚀 Features [🚧 Under Progress]
 
-- **Federated Code Intelligence**: Train a global AI model with anonymized code patterns, keeping your proprietary code private
-- **Cosmic Rewards**: Earn Zenith Tokens (ZTH) for contributing unique patterns, redeemable for premium features or compute power
-- **Hyper-Contextual Assistance**: Get real-time, domain-specific code suggestions, from GDPR-compliant data handling to low-power IoT optimizations
-- **Cross-Galactic Insights**: Leverage patterns from millions of projects to avoid bugs, adopt best practices, and predict tech trends
-- **Decentralized Compute Grid**: Access GPU clusters or run CI/CD pipelines using ZTH tokens, no matter where you are
-- **Privacy-First**: Zero-knowledge proofs and differential privacy ensure your code stays yours
+- **Federated Code Intelligence** [🚧 In Development]: Train a global AI model with anonymized code patterns, keeping your proprietary code private
+- **Cosmic Rewards** [🚧 In Development]: Earn Zenith Tokens (ZTH) for contributing unique patterns, redeemable for premium features or compute power
+- **Hyper-Contextual Assistance** [🚧 In Development]: Get real-time, domain-specific code suggestions, from GDPR-compliant data handling to low-power IoT optimizations
+- **Cross-Galactic Insights** [🚧 In Development]: Leverage patterns from millions of projects to avoid bugs, adopt best practices, and predict tech trends
+- **Decentralized Compute Grid** [🚧 Planned]: Access GPU clusters or run CI/CD pipelines using ZTH tokens, no matter where you are
+- **Privacy-First** [🚧 In Development]: Zero-knowledge proofs and differential privacy ensure your code stays yours
 
 ## 🛠️ Tech Stack
 
@@ -121,31 +121,31 @@ cd ai-service
 python main.py
 ```
 
-## 🌠 Usage
+## 🌠 Usage [🚧 Under Progress]
 
-### Web Dashboard
+### Web Dashboard [🚧 In Development]
 1. Visit `http://localhost:3000` to access the ZenithCode dashboard
 2. Connect your Solana wallet to start earning ZTH tokens
 3. Configure your coding preferences and privacy settings
 
-### IDE Integration
+### IDE Integration [🚧 Planned]
 1. Install the ZenithCode VS Code extension from the marketplace
 2. Enable pattern extraction in settings (`Settings > ZenithCode > Enable Pattern Extraction`)
 3. Start coding and receive AI-powered suggestions
 
-### Contributing Patterns
+### Contributing Patterns [🚧 In Development]
 1. Opt-in to share anonymized patterns (no raw code leaves your machine)
 2. Earn ZTH tokens based on pattern uniqueness and adoption
 3. Track your contributions in the dashboard
 
-### Accessing Compute Resources
+### Accessing Compute Resources [🚧 Planned]
 ```bash
 # Use ZTH tokens to run tests or train models
 zenith compute run --task test --image docker.io/my-app
 zenith compute train --model my-model --dataset my-dataset
 ```
 
-### Exploring Insights
+### Exploring Insights [🚧 In Development]
 - View pattern trends in the analytics dashboard
 - Discover popular coding patterns in your domain
 - Get recommendations for code improvements
@@ -194,9 +194,9 @@ npm run build
 - **Twitter**: Follow @ZenithCodeDev for updates and cosmic coding tips
 - **GitHub**: Contribute to the codebase and documentation
 
-## 📊 API Documentation
+## 📊 API Documentation [🚧 Under Progress]
 
-### GraphQL Schema
+### GraphQL Schema [🚧 In Development]
 ```graphql
 type User {
   id: ID!
@@ -225,7 +225,7 @@ type Mutation {
 }
 ```
 
-### REST API Endpoints
+### REST API Endpoints [🚧 In Development]
 ```
 GET    /api/users/:id
 POST   /api/patterns
@@ -234,12 +234,12 @@ POST   /api/compute/jobs
 GET    /api/insights/trends
 ```
 
-## ⚠️ Known Limitations
+## ⚠️ Known Limitations [🚧 Under Progress]
 
-- **MVP Phase**: Currently supports Python, JavaScript, and Rust; more languages coming soon
-- **Resource Usage**: Local model training may be heavy on low-end devices (use the compute grid!)
-- **Testnet**: Blockchain features are on Solana testnet; mainnet launch planned for Q3 2026
-- **Browser Compatibility**: Optimized for Chrome and Firefox; Safari support in progress
+- **MVP Phase** [🚧 In Development]: Currently supports Python, JavaScript, and Rust; more languages coming soon
+- **Resource Usage** [🚧 In Development]: Local model training may be heavy on low-end devices (use the compute grid!)
+- **Testnet** [🚧 In Development]: Blockchain features are on Solana testnet; mainnet launch planned for Q3 2026
+- **Browser Compatibility** [🚧 In Development]: Optimized for Chrome and Firefox; Safari support in progress
 
 ## 🔧 Configuration
 
@@ -261,17 +261,21 @@ PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
 FEDERATED_LEARNING_ENDPOINT=http://localhost:8080
 ```
 
-## 📈 Roadmap
+## 📈 Roadmap [🚧 Under Progress]
 
-- **Q1 2025**: MERN stack frontend completion, basic federated learning
-- **Q2 2025**: VS Code extension, expanded language support
-- **Q3 2025**: Mainnet launch, decentralized compute grid
-- **Q4 2025**: Mobile app, advanced AI features
-- **2026**: Enterprise features, multi-blockchain support
+- **Q1 2025** [🚧 In Progress]: MERN stack frontend completion, basic federated learning
+- **Q2 2025** [🚧 Planned]: VS Code extension, expanded language support
+- **Q3 2025** [🚧 Planned]: Mainnet launch, decentralized compute grid
+- **Q4 2025** [🚧 Planned]: Mobile app, advanced AI features
+- **2026** [🚧 Planned]: Enterprise features, multi-blockchain support
 
 ## 📜 License
 
 MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+**🌌 Project Status**: This project is currently under active development. The core infrastructure and basic features are implemented, but many advanced features are still in progress. We welcome contributions and feedback from the community!
 
 ## 🌟 Why ZenithCode?
 
