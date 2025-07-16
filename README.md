@@ -280,7 +280,3 @@ MIT License. See [LICENSE](LICENSE) for details.
 ## 🌟 Why ZenithCode?
 
 Because coding shouldn't be a black hole of repetitive tasks and centralized control. We're here to automate the mundane, empower the niche, and reward the brilliant. Join us in reaching the zenith of coding excellence and building a decentralized future!
-
----
-
-**Ready to reach the zenith of coding?** [Get Started](https://zenithcode.dev) | [Join Discord](https://discord.gg/zenithcode) | [Follow Us](https://twitter.com/zenithcodedev)
