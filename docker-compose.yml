@@ -1,0 +1,162 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:6.0
+    container_name: zenithcode-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: zenithcode
+    volumes:
+      - mongodb_data:/data/db
+      - ./scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - zenithcode-network
+
+  # Redis for caching and queues
+  redis:
+    image: redis:7-alpine
+    container_name: zenithcode-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - zenithcode-network
+
+  # Neo4j Graph Database
+  neo4j:
+    image: neo4j:5.8
+    container_name: zenithcode-neo4j
+    restart: unless-stopped
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/password
+      NEO4J_PLUGINS: '["apoc"]'
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_import:/var/lib/neo4j/import
+      - neo4j_plugins:/plugins
+    networks:
+      - zenithcode-network
+
+  # IPFS Node
+  ipfs:
+    image: ipfs/kubo:latest
+    container_name: zenithcode-ipfs
+    restart: unless-stopped
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8080:8080"
+    volumes:
+      - ipfs_data:/data/ipfs
+    networks:
+      - zenithcode-network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: zenithcode-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/zenithcode?authSource=admin
+      - REDIS_URL=redis://redis:6379
+      - NEO4J_URI=bolt://neo4j:7687
+      - IPFS_API_URL=http://ipfs:5001
+    depends_on:
+      - mongodb
+      - redis
+      - neo4j
+      - ipfs
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - zenithcode-network
+
+  # AI Service
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    container_name: zenithcode-ai-service
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/zenithcode?authSource=admin
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./ai-service:/app
+      - ai_models:/app/models
+    networks:
+      - zenithcode-network
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: zenithcode-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+      - NEXT_PUBLIC_GRAPHQL_URL=http://localhost:5000/graphql
+      - NEXT_PUBLIC_SOLANA_NETWORK=testnet
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - zenithcode-network
+
+  # Solana Validator (for local development)
+  solana:
+    image: solanalabs/solana:stable
+    container_name: zenithcode-solana
+    restart: unless-stopped
+    ports:
+      - "8899:8899"
+      - "8900:8900"
+    command: solana-test-validator --rpc-port 8899 --rpc-bind-address 0.0.0.0
+    volumes:
+      - solana_data:/root/.local/share/solana
+    networks:
+      - zenithcode-network
+
+volumes:
+  mongodb_data:
+  redis_data:
+  neo4j_data:
+  neo4j_logs:
+  neo4j_import:
+  neo4j_plugins:
+  ipfs_data:
+  ai_models:
+  solana_data:
+
+networks:
+  zenithcode-network:
+    driver: bridge 
